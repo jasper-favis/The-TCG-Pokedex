@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const pokeApiRoute = "https://pokeapi.co/api/v2/pokemon/";
 const tcgApiRoute = "https://api.pokemontcg.io/v2/cards";
 const api_key = process.env.API_KEY;

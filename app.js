@@ -22,7 +22,6 @@ const GENERATIONS = [
   { offset: 905, limit: 3 }
 ]
 
-
 // ejs - register view engine
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,6 +38,9 @@ app.post("/cards/info", function (req, res) {
   const page = searchEntries.page || 1;
   const params = `?q=${queryType}:${query}*&page=${page}&pageSize=${pageSize}`;
   const url = tcgApiRoute + params;
+
+  // TEST TEST TEST
+  console.log("API URL: " + url);
 
   // Get data from pokemontcg.io API
   https.get(url, options, (response) => {

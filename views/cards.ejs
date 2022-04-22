@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The TCG Pokedex</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+
+    <div class="page-container">
+      <%- include("./partials/nav.ejs") %>
+      <div class="content-wrap">
+        <div class="cards-header">
+          <p>Pok&#233;mon Cards</p>
+        </div>
+        <%- include("./partials/cards-search.ejs") %> 
+
+        <section class="cards">
+          <div class="noResults">
+            <img src="/images/psyduck.png" alt="Psyduck Image">
+            <p>Oops! No results.</p>
+          </div>
+        </section>
+    
+        <section class="pagination">
+          <div id="prev-button">Prev</div>
+          <div id="next-button">Next</div>
+        </section>
+
+        <%- include("./partials/modal.ejs") %>
+      </div>
+      <%- include("./partials/footer.ejs") %> 
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="cards.js"></script>
+  </body>
+</html>

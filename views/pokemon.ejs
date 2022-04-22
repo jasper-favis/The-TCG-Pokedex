@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The TCG Pokedex</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <%- include("./partials/nav.ejs") %>
+      <div class="content-wrap">
+        <div class="pokemon-header">
+          <p>Pok&#233;mon</p>
+        </div>
+        <%- include("./partials/pokemon-search.ejs") %>
+        
+        <!-- Display Pokemon -->
+        <% if(pokemon != null && gen != null && firstPokemon != null) {%>
+        <div class="pokemon-list">
+          
+          <% let count = firstPokemon; %> <% pokemon.forEach( p => { %>
+          <div class="pokemon" id="<%=p%>">
+            <% const formattedCount = ('000' + count).substr(-3) %>
+            
+            <div class="pokemon-img-wrapper">
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%=count%>.png"
+                onerror="this.onerror=null; this.src='/images/psyduck.png'"
+                alt="<%=p%> image"
+                width="180px"
+              />
+            </div>
+            
+            <div class="pokemon-descrip">
+              <p class="pokemon-number">#<%=formattedCount%></p>
+              <div><%=p%></div>
+            </div>
+          </div>
+          <% count += 1; %> <% }); %>
+        </div>
+        <% } %>
+        <a href="" id="search-link" display="none"></a>
+      </div>
+
+
+
+  
+  
+      <%- include("./partials/footer.ejs") %> 
+    </div>
+
+    
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/pokemon.js"></script>
+  </body>
+</html>

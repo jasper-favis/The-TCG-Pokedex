@@ -1,5 +1,5 @@
 export const search = async (options) => {
-  const query = options.query || "";
+  const query = trimWhiteSpace(options.query) || "";
   const queryType = options.queryType || "name";
   const page = options.page || 1;
   const searchEntries = { query, queryType, page };
@@ -34,4 +34,8 @@ export const scrollTo = (elem) => {
   $([document.documentElement, document.body]).animate({
     scrollTop: $(elem).offset().top
   }, 1000);
+}
+
+function trimWhiteSpace(str) {
+  return str.replace(/\s/g, "");
 }

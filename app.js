@@ -39,7 +39,6 @@ app.post("/cards/info", function (req, res) {
   const params = `?q=${queryType}:${query}*&page=${page}&pageSize=${pageSize}`;
   const url = tcgApiRoute + params;
 
-
   // Get data from pokemontcg.io API
   https.get(url, options, (response) => {
     let rawData = '';
